@@ -1,5 +1,6 @@
-# Proyecto base para prueba de producción UD6 Mantenimiento del estado
-UD5 PWCS
+# Proyecto base para prueba de producción UD6 - Mantenimiento del estado
+
+##UD6 DWCS
 
 
 Para utilizar el framework debemos resolver las dependecias. Vamos a la raíz del proyecto y ejecutamos:
