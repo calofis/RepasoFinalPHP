@@ -1,4 +1,4 @@
-# ud5_servidor
+# Proyecto base para prueba de producción UD6 Mantenimiento del estado
 UD5 PWCS
 
 
@@ -6,4 +6,4 @@ Para utilizar el framework debemos resolver las dependecias. Vamos a la raíz de
 
 composer install
 
-Una vez instalado, debemos poner el proyecto en la raíz de un subdominio tipo ud4.localhost o similar ya que si no, no funcionarán los css y js.
+Una vez instalado, debemos poner el proyecto en la raíz de un subdominio tipo ud6.localhost o similar ya que si no, no funcionarán los css y js.
