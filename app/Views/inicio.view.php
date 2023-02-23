@@ -4,7 +4,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?php 
+                    echo $numProductos;
+                ?></h3>
 
                 <p>Productos</p>
               </div>
@@ -20,8 +22,7 @@
             <div class="small-box bg-success">
               <div class="inner">
                   <h3><?php 
-                    $categoriasController = new \Com\Daw2\Controllers\CategoriaController();
-                    echo $categoriasController->size();
+                    echo $numCategorias;
                 ?></h3>
 
                 <p>Categorías</p>
@@ -37,10 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php 
-                    $controllerProveedores = new \Com\Daw2\Controllers\ProveedorController();
-                    echo $controllerProveedores->size();
-                ?></h3>
+                <h3><?php echo $numProveedores; ?></h3>
 
                 <p>Proveedores</p>
               </div>

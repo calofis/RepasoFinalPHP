@@ -14,6 +14,11 @@ class ProductoModel extends \Com\Daw2\Core\BaseModel {
         return $stmt->fetchAll();
     }
     
+    public function size() : int{
+        $stmt = $this->pdo->query("SELECT COUNT(*) FROM producto");        
+        return $stmt->fetchColumn();
+    }
+    
     public function loadProducto(string $id) : ?array{
         $stmt = $this->pdo->prepare("SELECT * FROM producto WHERE codigo = ?");
         $stmt->execute([$id]);
