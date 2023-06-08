@@ -19,7 +19,7 @@ class ProveedorModel extends \Com\Daw2\Core\BaseModel {
     function delete(string $cif): int {
         try { #if there are products enroled to the provider returns 0
             $stmt = $this->pdo->prepare('SELECT * FROM producto WHERE proveedor=?');
-            $stmt->execute([$cif]);
+            $stmt->execute([$cif]); 
             if ($stmt->rowCount() > 0) {
                 return 0;
             } else { #if everything was ok return 1

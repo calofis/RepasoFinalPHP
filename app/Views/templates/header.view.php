@@ -56,7 +56,7 @@
       </li>' ;
           ?>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo isset($_SESSION['usuario']['id_usuario']) ? '/session/borrar' : '/login';?>" role="button">
+        <a class="nav-link" href="/logout" role="button">
           <?php if(isset($_SESSION['usuario']['id_usuario'])) { ?>
             <i class="text-danger fas fa-sign-out-alt"></i> 
           <?php 
@@ -95,10 +95,10 @@
         </div>
         <div class="info">
           <a href="#"
-                class="d-block"> <i>Sin establecer</i> </a>    
+                class="d-block"><?php echo isset($_SESSION['usuario']['username']) ? $_SESSION['usuario']['username'] : '<i>Sin identificar</i>';?> </a>    
         </div>
       </div>
-     
+     s
       <?php
       include $_ENV['folder.views'].'/templates/left-menu.view.php';
       ?>

@@ -16,9 +16,11 @@
                 <h6 class="m-0 installfont-weight-bold text-primary">Proveedores</h6> 
                 </div>
                 <div class="col-6">
+                <?php if(isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['Proveedores'], 'w') !== false) { ?>
                 <div class="m-0 font-weight-bold justify-content-end">
                     <a href="/proveedores/add/" class="btn btn-primary ml-1 float-right"> Nuevo Proveedor <i class="fas fa-plus-circle"></i></a>
                 </div>
+                <?php } ?>
                 </div>
                 
             </div>
@@ -76,9 +78,12 @@
                             -->
                             
                             <td>                                
-                                <a href="/proveedores/view/<?php echo $p['cif']; ?>" class="btn btn-default ml-1"><i class="fas fa-eye"></i></a>                                
+                                <a href="/proveedores/view/<?php echo $p['cif']; ?>" class="btn btn-default ml-1"><i class="fas fa-eye"></i></a>
+                                <?php if(isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['Proveedores'], 'w') !== false) { ?>
                                 <a href="/proveedores/edit/<?php echo $p['cif']; ?>" class="btn btn-success ml-1"><i class="fas fa-edit"></i></a>
+                                <?php } if(isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['Proveedores'], 'w') !== false) { ?>
                                 <a href="/proveedores/delete/<?php echo $p['cif']; ?>" class="btn btn-danger ml-1"><i class="fas fa-trash"></i></a>
+                                <?php } ?>
                             </td>
 
                         </tr>

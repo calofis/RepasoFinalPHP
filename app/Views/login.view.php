@@ -42,7 +42,7 @@
             </div>
           </div>          
         </div>           
-      <p class="login-box-msg text-danger">Datos incorrectos</p>      
+          <p class="login-box-msg text-danger"><?php echo isset($erroresLogin) ? $erroresLogin : ''; ?></p>      
         <div class="row">
           <div class="col-12">            
             <button type="submit" class="btn btn-primary btn-block float-right">Acceder</button>

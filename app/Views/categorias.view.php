@@ -15,10 +15,12 @@
                 <div class="col-6">
                 <h6 class="m-0 installfont-weight-bold text-primary">Categorías</h6> 
                 </div>
-                <div class="col-6">   
+                <div class="col-6">
+                    <?php if(isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['Categorias'], 'w') !== false) { ?>
                     <div class="m-0 font-weight-bold justify-content-end">
                         <a href="/categorias/add/" class="btn btn-primary ml-1 float-right"> Nueva Categoría <i class="fas fa-plus-circle"></i></a>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
             <!-- Card Body -->
@@ -47,8 +49,11 @@
                                     <td><?php echo $c['fullName']; ?></td>   
                                     <td>                                       
                                         <a href="/categorias/view/<?php echo $c['id_categoria']; ?>" class="btn btn-default ml-1"><i class="fas fa-eye"></i></a>
+                                        <?php if(isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['Categorias'], 'w') !== false) { ?>
                                         <a href="/categorias/edit/<?php echo $c['id_categoria']; ?>" class="btn btn-success ml-1"><i class="fas fa-edit"></i></a>
+                                        <?php } if(isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['Categorias'], 'd') !== false) { ?>
                                         <a href="/categorias/delete/<?php echo $c['id_categoria']; ?>" class="btn btn-danger ml-1"><i class="fas fa-trash"></i></a>
+                                        <?php } ?>
                                     </td>
 
                                 </tr>
