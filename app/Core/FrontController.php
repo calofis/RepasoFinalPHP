@@ -36,7 +36,7 @@ class FrontController {
                     , 'get');
 
             if (isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['UsuariosSistema'], 'r') !== false) {
-               
+
                 Route::add('/usuarios-sistema/add',
                         function () {
                             $controlador = new \Com\Daw2\Controllers\usuariosSistemaController();
@@ -59,6 +59,24 @@ class FrontController {
                         function ($id) {
                             $controlador = new \Com\Daw2\Controllers\usuariosSistemaController();
                             $controlador->baja($id);
+                        }
+                        , 'get');
+                Route::add('/usuarios-sistema/edit/([0-9]+)',
+                        function ($id) {
+                            $controlador = new \Com\Daw2\Controllers\usuariosSistemaController();
+                            $controlador->modificar($id);
+                        }
+                        , 'get');
+                Route::add('/usuarios-sistema/edit/([0-9]+)',
+                        function ($id) {
+                            $controlador = new \Com\Daw2\Controllers\usuariosSistemaController();
+                            $controlador->doModificar($id);
+                        }
+                        , 'post');
+                Route::add('/usuarios-sistema/view/([0-9]+)',
+                        function ($id) {
+                            $controlador = new \Com\Daw2\Controllers\usuariosSistemaController();
+                            $controlador->view($id);
                         }
                         , 'get');
                 Route::add('/usuarios-sistema',

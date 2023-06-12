@@ -1,9 +1,9 @@
 <div class="row">       
     <?php
-    if (isset($error)) {
+    if (isset($errorUsuario)) {
         ?>
         <div class="col-12">
-            <div class="alert alert-danger"><p><?php echo $error; ?></p></div>
+            <div class="alert alert-danger"><p><?php echo $errorUsuario; ?></p></div>
         </div>
         <?php
     }
@@ -46,24 +46,20 @@
                                     <td><?php echo $u['username']; ?></td>
                                     <td><?php echo $u['email']; ?></td>                                     
                                     <td><?php echo $u['nombre_rol']; ?></td>   
-                                    <td>                                       
+                                    <td> 
+                                        <?php if (isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['UsuariosSistema'], 'r') !== false) { ?>
+                                            <a href="/usuarios-sistema/view/<?php echo $u['id_usuario']; ?>" class="btn btn-default ml-1"><i class="fas fa-eye"></i></a>
+                                        <?php } ?>
                                         <?php if (isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['UsuariosSistema'], 'w') !== false) { ?>
                                             <a href="/usuarios-sistema/edit/<?php echo $u['id_usuario']; ?>" class="btn btn-success ml-1"><i class="fas fa-edit"></i></a>
                                         <?php } ?>
                                         <?php if (isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['UsuariosSistema'], 'w') !== false) { ?>
-                                            <?php if ($_SESSION['usuario']['username'] == $u['username']) { ?>
-                                                <a href="/usuarios-sistema" class="btn btn-primary"><i class="fas fa-toggle-on"></i></a>
-                                            <?php } else { ?>
-                                                <a href="/usuarios-sistema/baja/<?php echo $u['id_usuario']; ?>" class="btn btn-primary"> <i class="<?php echo $u['baja'] == 1 ? 'fas fa-toggle-off' : 'fas fa-toggle-on'; ?>"></i></a>
-                                            <?php }
-                                        } ?>
+                                            <a href="/usuarios-sistema/baja/<?php echo $u['id_usuario']; ?>" class="btn btn-primary"> <i class="<?php echo $u['baja'] == 1 ? 'fas fa-toggle-off' : 'fas fa-toggle-on'; ?>"></i></a>
+                                        <?php } ?>
                                         <?php if (isset($_SESSION['permisos']) && strpos($_SESSION['permisos']['UsuariosSistema'], 'd') !== false) { ?>
-                                            <?php if ($_SESSION['usuario']['username'] == $u['username']) { ?>
-                                                <a href="/usuarios-sistema" class="btn btn-danger ml-1"><i class="fas fa-trash"></i></a>
-                                            <?php } else { ?>
-                                                <a href="/usuarios-sistema/delete/<?php echo $u['id_usuario']; ?>" class="btn btn-danger ml-1"><i class="fas fa-trash"></i></a>
+                                            <a href="/usuarios-sistema/delete/<?php echo $u['id_usuario']; ?>" class="btn btn-danger ml-1"><i class="fas fa-trash"></i></a>
                                             <?php }
-                                        } ?>
+                                        ?>
                                     </td>
 
                                 </tr>

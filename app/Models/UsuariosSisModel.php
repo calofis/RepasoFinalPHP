@@ -61,5 +61,21 @@ class UsuariosSisModel extends \Com\Daw2\Core\BaseModel {
         $stmt->execute($valores);
         return $stmt->rowCount() > 0;
     }
+    
+    public function modificar(array $valores): bool {
+        if(isset($valores['password'])){
+            $stmt = $this->pdo->prepare('UPDATE usuario_sistema SET id_rol = :id_rol, email = :email, pass = :password, username = :username, idioma = :idioma WHERE id_usuario = :id_usuario');
+        }else{
+            $stmt = $this->pdo->prepare('UPDATE usuario_sistema SET id_rol = :id_rol, email = :email, username = :username, idioma = :idioma WHERE id_usuario = :id_usuario');
+        }
+        $stmt->execute($valores);
+        return $stmt->rowCount() > 0;
+    }
+    
+    public function existEmail(string $email , int $id){
+        $stmt = $this->pdo->prepare('SELECT * FROM usuario_sistema WHERE email = ? AND id_usuario != ?');
+        $stmt->execute([$email, $id]);
+        return $stmt->rowCount() > 0;
+    }
 
 }
